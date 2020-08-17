@@ -1,24 +1,18 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
-    name: "ServiceSDK-iOS",
-    platforms: [
-        .iOS(.v10)
-    ],
+    name: "ServiceSDK",
+    platforms: [.iOS(.v9)],
+    // platforms: [.iOS("9.0"), .macOS("10.10"), tvOS("9.0"), .watchOS("2.0")],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "ServiceSDK",
-            targets: ["ServiceSDK"])
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
+        .library(name: "ServiceSDK", targets: ["ServiceSDK"])
     ],
     targets: [
-        .binaryTarget(
+        .target(
             name: "ServiceSDK",
-            path: "ServiceSDK.xcframework"
+            path: "lottie-swift/src",
+            exclude: ["Public/MacOS"]
         )
     ]
 )
